@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: absolute;
+            top: 50px;
+            left:30px;
+
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            position: absolute;
+            top:50px;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="inner"></div>
+        </div>
+
+    </div>
+<button id="btn1">读取</button>
+<button id="btn2">设置</button>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  // 读取wrap相对于页面左上角的位置
+  // 读取inner相对于页面左上角的位置
+//  offset  返回一个对象  有left和top两个属性   元素相对于页面左上角的位置
+//  position 返回一个对象  有left和top两个属性  元素相对于包含块左上角的位置
+//     以上两个方法  返回值都不带单位 但是以像素计
+//  offset 传一个对象 可以设置元素的位置  设置时不需要带单位    不过一般不使用这种方式
+    $(function () {
+      $('#btn1').click(function () {
+//        console.log($('.wrap').offset());
+//        console.log($('.inner').offset());
+          console.log($('.wrap').position());
+          console.log($('.inner').position());
+      });
+      $('#btn2').click(function () {
+        $('.inner').offset({
+            'left':300,
+            'top':200
+        })
+      })
+    })
+</script>
+</body>
+</html>

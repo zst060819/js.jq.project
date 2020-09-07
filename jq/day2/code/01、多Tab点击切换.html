@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_多Tab点击切换</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #tab li {
+      float: left;
+      list-style: none;
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    #container {
+      position: relative;
+    }
+
+    #content1, #content2, #content3 {
+      width: 300px;
+      height: 100px;
+      padding: 30px;
+      position: absolute;
+      top: 40px;
+      left: 0;
+    }
+
+    #tab1, #content1 {
+      background-color: #ffcc00;
+    }
+
+    #tab2, #content2 {
+      background-color: #ff00cc;
+    }
+
+    #tab3, #content3 {
+      background-color: #00ccff;
+    }
+  </style>
+</head>
+<body>
+<h2>多Tab点击切换</h2>
+<ul id="tab">
+  <li id="tab1" value="1">10元套餐</li>
+  <li id="tab2" value="2">30元套餐</li>
+  <li id="tab3" value="3">50元包月</li>
+</ul>
+<div id="container">
+  <div id="content1">
+    10元套餐详情：<br/>&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+  </div>
+  <div id="content2" style="display: none">
+    30元套餐详情：<br/>&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+  </div>
+  <div id="content3" style="display: none">
+    50元包月详情：<br/>&nbsp;每月无限量随心打
+  </div>
+</div>
+<script src="js/jquery-1.10.1.js"></script>
+<script>
+  $(function () {
+//    获取三个li
+      var $list = $('#tab>li');
+//    获取三个div
+      var $divs = $('#container>div');
+//    保存上一次的索引
+      var oldIndex = 0;
+//      li绑定单击事件
+      $list.click(function () {
+//        把所有的div隐藏  让当前li索引值对应的div显示
+          var index = $(this).index();
+          if(oldIndex === index){
+              alert('请不要重复点击');
+              return
+          }
+          alert('恭喜点击成功');
+//        hide和show对应隐藏与显示     hide就相当于display = none
+//          $divs.hide(); 不是用这种方法 虽然方便  但是效率相对而言不是特别好
+          $divs[oldIndex].style.display = 'none';
+          $divs[index].style.display = 'block';
+//        更新索引
+// 一个函数的结尾 也相当于是下一次执行的开始  一个函数的开始 也相当于是上一次的结尾
+          oldIndex = index;
+      })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello" class="item">DDDDD</li>
+        <li title="two"><div><span>EEEEE</span></div></li>
+    </ul>
+    <li>EEEEE</li>
+    <li>FFFFF</li>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+//  过滤选择器 是在查找dom的过程当中进行筛选 把匹配的dom元素封装进jQuery对象
+//  筛选过滤的方法 是在已经有jQuery对象的前提下 要对当前这个对象进行过滤
+// 这时只能通过方法来解决 而不能使用选择器了
+    var $list = $('ul>li');
+//  1.ul下li标签的第一个
+//    $list.first().css('background','pink');
+//  2.ul下li标签的最后一个
+//    $list.last().css('background','pink');
+//  3.ul下li标签的第二个
+//    $list.eq(1).css('background','pink');
+//  4.ul下li标签中title属性为hello的
+//filter  根据传递的选择器 筛选已有的jQuery对象
+//    $list.filter('[title=hello]').css('background','pink')
+//    $list.filter(':first').css('background','pink');
+//  5.ul下li标签中有span子标签的
+//has()  这个方法只要内部存在即可
+$list.has('span').css('background','pink');
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" class="box">div1(class=box)</div>
+<div id="div2" class="box">div2(class=box)</div>
+<div id="div3">div3</div>
+<span class="box">span(class=box)</span>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    //jQuery的方法内置隐试遍历
+  //选择id为div1的元素
+//    $('#div1').css('background','pink');
+//  选择所有的div元素
+//    $('div').css('background','pink');
+//  选择所有class属性为box的元素
+//    $('.box').css('background','pink');
+//   选择所有的div和span元素
+//    $('div,span').css('background','pink');
+//    选择class属性为box的div
+    $('div.box').css('background','pink');
+</script>
+</body>
+</html>

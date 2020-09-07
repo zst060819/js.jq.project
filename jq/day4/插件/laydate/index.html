@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="js/theme/default/laydate.css">
+</head>
+<body>
+<div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+    <input type="text" class="layui-input" id="test1">
+</div>
+<script type="text/javascript" src="js/laydate.js"></script>
+<script type="text/javascript">
+    laydate.render({
+        elem:'#test1',
+        type:'date',
+        range: true,
+        min: '2020-2-6'
+        ,max: '2020-2-24',
+        theme: '#000'
+    })
+</script>
+</body>
+</html>

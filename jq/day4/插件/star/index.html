@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <style>
+        .btn{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="star"></div>
+    <div id="result"></div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.raty.min.js"></script>
+<script type="text/javascript">
+    $('#star').raty({
+        starOff: 'star-off-big.png',
+        starOn: 'star-on-big.png',
+        size:24,
+        hints: ['非常差', '差', '一般', '良好', '完美'],
+        click: function (score, evt) {
+            alert('u selected '+score);
+        },
+        mouseout:function () {
+            console.log('我在星星上滑动了')
+        },
+        mouseover:function () {
+            console.log('我在星星上滑动了')
+        },
+        target:'#result',
+        targetKeep:true,
+        number:10,
+        cancel:true,
+        cancelClass:'btn',
+        cancelHint:'你要取消',
+        half:true,
+        starHalf:'star-half-big.png',
+        score:5
+
+    });
+</script>
+</body>
+</html>

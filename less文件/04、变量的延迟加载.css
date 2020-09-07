@@ -1,0 +1,6 @@
+.wrap {
+  one: 5;
+}
+.wrap .inner {
+  three: 4;
+}

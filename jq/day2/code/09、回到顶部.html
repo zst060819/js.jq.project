@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #toTop{
+            width: 30px;
+            height: 40px;
+            background: skyblue;
+            text-align: center;
+            line-height: 20px;
+            font-size: 14px;
+            color: #fff;
+            position: fixed;
+            right:200px;
+            bottom:100px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="height: 2000px">
+<div id="toTop">回到顶部</div>
+
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  //  能够实现回到顶部的方案一共两种
+//    1.时间固定      则路程越长  速度越快      第一种更主流
+//    2.速度固定      则路程越长  时间越长
+
+//    动画总时长  逐帧动画
+    var time = 2000;
+//    动画帧时长      动画总时长 / 动画帧时长 = 总帧数
+    var itemTime = 20;
+//  给回到顶部按钮绑定单击事件
+    $('#toTop').click(function () {
+//      获取总路程  (当前页面的滚动条位置)
+        var offset = $('html').scrollTop() + $('body').scrollTop();
+//      计算单次偏移  =  总路程 / (动画总时长 / 动画帧时长)
+        var itemOffset = offset / ( time / itemTime );
+//        定时器
+        var timer = setInterval(function () {
+//            500 -= 5;   495  490  485  480 475 470  ... 0
+            offset -= itemOffset;
+//            如果当前的位置（offset）等于0了  说明已经回到顶部  清除定时器
+            if(offset<=0){
+              clearInterval(timer);
+            }
+//          每次调用定时器 都是修改页面的scrollTop值  每次减小itemOffset
+            $('html,body').scrollTop(offset);
+        },itemTime)
+
+    })
+
+</script>
+</body>
+</html>

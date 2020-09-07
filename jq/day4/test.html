@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  function $() {
+    var obj = {};
+    obj.name = '李立超';
+    obj.say = function () {
+      alert('我喜欢猪八戒');
+      return this;
+    };
+    obj.eat = function () {
+      alert('我贼能吃');
+      return this;
+    };
+    return obj;
+  }
+//  对象链式开发
+  $().eat().say();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+// less默认情况下直接使用嵌套 渲染后的选择器为后代选择器
+// 如果需要给当前元素设置伪类，伪元素，结构类等  只需要在当前大括号的里边使用&  代表其自身
+// 如果需要操作子元素  只需要在子元素名字前边使用 ‘>’
+
+.list{
+  width: 400px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  list-style: none;
+  li{
+    height: 30px;
+    line-height: 30px;
+    &:hover{
+      background: pink;
+    }
+    &:nth-child(2){
+      background: red;
+    }
+  }
+  >a{
+    color: #000;
+  }
+}
+//如果当前的父元素 有id或者比较特殊的class  可以减少一定的层级的嵌套
+.wrap{
+  header{
+
+  }
+
+}
+.headerMain{
+  .left{
+
+  }
+  .right{
+
+  }
+}
+
+
+.wrap{
+  position: absolute;left: 0;top: 0;right: 0;bottom: 0;
+  width: 200px;height: 200px;padding: 20px;margin: auto;border:1px solid #ccc;
+  background: pink;
+  color: red;line-height: 200px;text-align: center;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+

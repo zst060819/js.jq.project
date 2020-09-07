@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+//    var name = "The Window";
+//    var object = {
+//        name: "My Object",
+//        getNameFunc: function () {
+////            this => object
+//            return function () {
+//                return this.name;
+//            };
+//        }
+//    };
+//    console.log(object.getNameFunc()());
+//
+//    var name2 = "The Window";
+//    var object2 = {
+//        name2: "My Object",
+//        getNameFunc: function () {
+//            var that = this;
+//            return function () {
+//                return that.name2;
+//            };
+//        }
+//    };
+//    console.log(object2.getNameFunc()());
+function fun(n, o) {
+//    n=0    n=1;
+    console.log(o)
+    return {
+        fun: function (m) {
+            return fun(m, n)
+        }
+    }
+}
+//每一次调用的时候，拿到的都是新的闭包机制，每一次都是拿自己新的fun调用的执行上下文中的n
+//function fun(0 ,und)
+//function fun(1,0)
+//var b = {}.fun(2).fun(3)
+var b = fun(0).fun(1).fun(2).fun(3)
+//  三次调用使用的是一个闭包机制
+//var a = fun(0);//und
+//a.fun(1);//0  fun(1,0)
+//a.fun(2);//0  fun(2,0)
+//a.fun(3);//0  fun(3,0)
+//
+
+</script>
+</body>
+</html>

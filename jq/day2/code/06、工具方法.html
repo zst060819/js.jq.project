@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  var person = {
+      name:'wokong',
+      age:18
+  };
+  var arr = [9,11,43,17,6,20];
+//  $.each(遍历目标，回调函数（索引(键)，值）)
+  $.each(arr,function (k,v) {
+        console.log(k,v)
+  });
+  console.log($.type($()));
+  console.log($.isFunction());
+  console.log($.isArray(arr));
+  var json1 = '{"username":"bajie","age":18}';
+//  var json2 = "{'username':'bajie','age':18}";
+//   用来把json数组或者json对象的字符串  转换成正常的对象或者数组
+  console.log($.parseJSON(json1));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    <button id="btn">测试</button>
+    <br>
+    <input type="text" name="masg1"><br>
+    <input type="text" name="masg2"><br>
+</div>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  //需求1：点击按钮 显示按钮的文本，在增加一个新的input
+//  1.参数为函数：当dom加载完成后，执行的回调函数
+    $(function () {
+//   2.参数为选择器字符串：查找到匹配的元素并封装成jQuery对象
+//        在事件回调函数里边 this依旧是指向dom对象
+        $('#btn').click(function () {
+//         3.参数为dom对象：把dom对象转换成相应的jQuery对象返回
+            alert($(this).html());
+//            $(this).html('哈哈')
+//            4.参数为html标签字符串：创建标签对象并封装成jQuery对象
+            var str = '<input type="text" name="masg3"><br>';
+            $(str).appendTo('.box');
+        })
+    })
+//    需求2：遍历输出数组中所有的元素值
+    var arr = [3,1,5,7,11,2];
+//    通用遍历方法
+//  参数1：要遍历的内容  参数2：回调函数   回调函数：参数1 index  参数2 元素值
+    $.each(arr,function (index,item) {
+        console.log(index,item);
+    })
+//    需求3：去掉字符串两端空格
+    var str = '   my atguigu    ';
+//   把字符串当做参数传递给$.trim（）方法   返回值即为去除两端空格后的字符串
+    console.log('---'+$.trim(str)+'---');
+</script>
+</body>
+</html>

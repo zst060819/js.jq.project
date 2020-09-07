@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background: pink;
+
+            /*元素垂直水平居中1   必须已知元素宽高*/
+            /*position: absolute;*/
+            /*left:50%;*/
+            /*top:50%;*/
+            /*margin-left:-50%;*/
+            /*margin-top: -50%;*/
+            /*元素垂直水平居中2   必须已知元素宽高*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*top: 0;*/
+            /*right: 0;*/
+            /*bottom: 0;*/
+            /*margin: auto;*/
+            /*元素垂直水平居中3*/
+            position: absolute;
+            left:50%;
+            top:50%;
+            /*translate 百分比参照物是自身宽高  所以可以使用-50%   且不需要已知元素宽高*/
+            transform: translate(-50%,-50%);
+            text-align: center;
+            line-height: 200px;
+        }
+        span{
+            /*垂直水平居中4*/
+            /*inline-block或inline    父级 text-align: center  height=line-height   子元素vertical-align: middle*/
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span></span>
+    </div>
+</body>
+</html>

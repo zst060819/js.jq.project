@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>13_元素滚动</title>
+</head>
+<body style="height: 2000px;">
+<div class="box" style="border:1px solid black;width:100px;height:150px;overflow:auto">
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text.
+    his is some text.
+</div>
+<br>
+<br>
+<br>
+<button id="btn1">得到scrollTop</button>
+<button id="btn2">设置scrollTop</button>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    /*
+   需求:
+   1. 得到div或页面滚动条的坐标
+   2. 让div或页面的滚动条滚动到指定位置
+   */
+//    scrollTop() 读取滚动条的Y坐标  scrollLeft（）  读取滚动条的X坐标
+    $('#btn1').click(function () {
+//      console.log($('.box').scrollTop())
+//        body   html                         document
+//        html在chrome中是有效的
+//        body在IE中是有效的
+//        html和body 只有一个能够获取得到值
+//        console.log($('body').scrollTop())
+//        解决方案：html和body在获取的过程中 一个有值一个为零 所以让这两个获取的值相加
+//        document在1.8版本以上才可以使用  但是上边的解决方案 更加通用
+//        console.log($('html').scrollTop()+$('body').scrollTop());
+        console.log($(document).scrollTop());
+    })
+//    2. 让div或页面的滚动条滚动到指定位置
+    $('#btn2').click(function () {
+//        $('.box').scrollTop(200);
+//     设置滚动条坐标时和读取一样
+//        html在chrome中生效    body在IE中生效
+//        解决方案：html和body同时设置就行了
+//        $('html,body').scrollTop(200);
+//        如果版本没问题  document也是可以使用的
+        $(document).scrollTop(200);
+
+    })
+</script>
+</body>

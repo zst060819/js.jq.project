@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自己的</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body style="height: 2000px">
+<!--包裹容器-->
+    <div class="wrap">
+        <!--头部-->
+        <header class="header">
+            <!--头部导航区域-->
+            <div class="top">
+                <!--版心-->
+                <div class="container">
+                    <div class="loginList">
+                        <p>尚品汇欢迎您！</p>
+                        <p>
+                            <span>请</span>
+                            <a href="###">登录 </a>
+                            <a href="###" class="register">免费注册</a>
+                        </p>
+                    </div>
+                    <!--导航如果是静态 可以直接使用a标签  如果导航有动态效果  就需要嵌套ul-->
+                    <div class="typeList">
+                        <a href="###">我的订单</a>
+                        <a href="###">我的购物车</a>
+                        <a href="###">我的尚品汇</a>
+                        <a href="###">尚品汇会员</a>
+                        <a href="###">企业采购</a>
+                        <a href="###">关注尚品汇</a>
+                        <a href="###">合作招商</a>
+                        <a href="###">商家后台</a>
+                    </div>
+
+                </div>
+            </div>
+            <!--搜索框区域-->
+            <div class="bottom">
+                <h1 class="logoArea">
+                    <a href="###" title="尚品汇">
+                        <img src="img/Logo.png" alt="尚品汇">
+                    </a>
+                </h1>
+                <div class="searchArea">
+                    <form action="###">
+                        <input type="text" class="inputSearch">
+                        <button class="submit">搜索</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <!--商品导航分类-->
+        <div class="typeNav">
+            <div class="container">
+                <h2>全部商品分类</h2>
+                <nav>
+                    <a href="###">服装城</a>
+                    <a href="###">美妆馆</a>
+                    <a href="###">尚品惠超市</a>
+                    <a href="###">全球购</a>
+                    <a href="###">闪购</a>
+                    <a href="###">团购</a>
+                    <a href="###">有趣</a>
+                    <a href="###">秒杀</a>
+                </nav>
+            </div>
+        </div>
+        <!--主要内容区域-->
+        <section class="con">
+            <!--路径导航-->
+            <div class="conPoin">
+                <a href="###">手机、数码、通讯</a>
+                <i>/</i>
+                <a href="###">手机</a>
+                <i>/</i>
+                <a href="###">Apple手机</a>
+                <i>/</i>
+                <a>iphone 6S系类</a>
+            </div>
+            <!--内容区-->
+            <div class="mainCon">
+                <!--左侧放大镜区域-->
+                <div class="previewWrap">
+                    <!--放大镜效果区域-->
+                    <div class="preview">
+                        <div class="zoom">
+                            <!--小图-->
+                            <img src="img/s1.png" alt="">
+                            <!--蒙版-->
+                        </div>
+                        <!--大图-->
+                    </div>
+                    <!--缩略图区域-->
+                    <div class="specScroll">
+                        <a class="prev">&lt;</a>
+                        <div class="items">
+                            <ul class="list">
+                                <li><img src="img/s1.png" alt=""></li>
+                                <li><img src="img/s2.png" alt=""></li>
+                                <li><img src="img/s3.png" alt=""></li>
+                                <li><img src="img/s1.png" alt=""></li>
+                                <li><img src="img/s2.png" alt=""></li>
+                                <li><img src="img/s3.png" alt=""></li>
+                                <li><img src="img/s1.png" alt=""></li>
+                                <li><img src="img/s2.png" alt=""></li>
+                                <li><img src="img/s3.png" alt=""></li>
+                            </ul>
+                        </div>
+                        <a class="next">&gt;</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+<script type="text/javascript">
+  window.onload = function () {
+//    放大镜效果
+      magnifier();
+      function magnifier() {
+//        获取小图容器
+          var zoomNode = document.querySelector('.wrap .con .mainCon .previewWrap .preview .zoom');
+//        获取放大镜外层容器
+          var previewNode = document.querySelector('.wrap .con .mainCon .previewWrap .preview')
+//        初始化蒙版
+          var maskNode = null;
+//        初始化大图容器
+          var bigImgBoxNode = null;
+//        初始化大图
+          var bigImgNode = null;
+
+//        绑定鼠标移入移出事件
+          previewNode.onmouseenter = function () {
+//        当鼠标移入元素，创建蒙版，大图，大图容器 如果蒙版不存 即可创建 如果存在 不创建
+              if(!maskNode){//只要能进这个判断 mask一定是null  说明没有蒙版元素
+//                  创建蒙版
+                  maskNode = document.createElement('div');
+//                结合css当中已经存在的class  对蒙版设置样式
+                  maskNode.className = 'mask';
+//                  把蒙版插入到小图容器当中
+                  zoomNode.appendChild(maskNode);
+//                 如果蒙版不存在 大图和大图容器一定也不存在 所以直接同时创建即可
+//                 创建大图容器
+                  bigImgBoxNode = document.createElement('div');
+                  bigImgBoxNode.className = 'bigImgBox';
+//                 创建大图
+                  bigImgNode = new Image();
+//                  bigImgNode = document.createElement('img');
+                  bigImgNode.src = 'img/b1.png';
+//                 把大图放入到大图容器当中
+                  bigImgBoxNode.appendChild(bigImgNode);
+//                  把大图容器添加到放大镜结构中
+                  previewNode.appendChild(bigImgBoxNode);
+              }
+            zoomNode.onmousemove = function (event) {
+//              移动的逻辑
+//        当元素移动的时候 蒙版的位置   鼠标的clientX - 蒙版一半 - 父级距离屏幕边缘的位置
+                var maskPosition = {
+                    left:event.clientX - maskNode.offsetWidth / 2 - zoomNode.getBoundingClientRect().left,
+                    top: event.clientY - maskNode.offsetHeight / 2 - zoomNode.getBoundingClientRect().top
+                };
+//                console.log(maskPosition)
+//                判断边界     右侧边界的判断小图容器宽度 - 蒙版宽度
+                if(maskPosition.left <= 0){
+                  maskPosition.left = 0;
+                }else if(maskPosition.left >= zoomNode.clientWidth - maskNode.offsetWidth){
+                    maskPosition.left = zoomNode.clientWidth - maskNode.offsetWidth;
+                }
+                if(maskPosition.top <= 0){
+                  maskPosition.top = 0;
+                }else if(maskPosition.top >= zoomNode.clientHeight - maskNode.offsetHeight){
+                    maskPosition.top = zoomNode.clientHeight - maskNode.offsetHeight;
+                }
+//                对蒙版进行赋值
+                maskNode.style.left = maskPosition.left + 'px';
+                maskNode.style.top = maskPosition.top + 'px';
+//              计算比例: 蒙版总共可以移动的距离 / 大图能够移动的距离
+                var scale = (zoomNode.clientWidth - maskNode.offsetWidth) / (bigImgNode.offsetWidth-bigImgBoxNode.clientWidth)
+//              计算大图偏移
+                var bigImgPosition = {
+                    left:maskPosition.left / scale,
+                    top:maskPosition.top / scale
+                };
+//                给大图修改位置
+                bigImgNode.style.marginLeft = - bigImgPosition.left + 'px';
+                bigImgNode.style.marginTop = - bigImgPosition.top + 'px';
+            };
+            previewNode.onmouseleave = function () {
+//                删除大图容器  和蒙版
+                zoomNode.removeChild(maskNode);
+                previewNode.removeChild(bigImgBoxNode);
+//              把蒙版元素的变量初始化
+                maskNode = null;
+                bigImgBoxNode = null;
+                bigImgNode = null;
+//              事件解绑
+                zoomNode.onmousemove = null;
+                previewNode.onmouseleave= null;
+            }
+          }
+      }
+  }
+</script>
+</body>
+</html>

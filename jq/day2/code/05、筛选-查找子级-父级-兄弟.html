@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul>
+        <span>span文本1</span>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box" id='cc'>CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>span文本2</span></li>
+        <span>span文本3</span>
+    </ul>
+    <span>span文本444</span><br>
+    <li>eeeee</li>
+    <li>EEEEE</li>
+    <br>
+</div>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    var $ul = $('ul');
+  // 1.ul标签下第二个span子标签
+//    children()  用来获取子元素
+//    find()      用来获取后代元素
+//    $('ul>span:eq(1)').css('background','pink')
+//    $ul.children('span:eq(1)').css('background','pink');
+//   2.ul标签下第二个span后代标签
+//    $ul.find('span:eq(1)').css('background','pink');
+//   3.ul标签的父标签
+//    $ul.parent().parent().css('background','pink');
+//   4.id为cc的li标签的前面的所有li标签
+//    $('#cc').prevAll('li').css('background','pink');
+//    prevAll 获取前边所有兄弟标签   查到的元素会以倒序存入jQuery对象
+//    console.log($('#cc').prevAll())
+//    $('#cc').nextAll('li').css('background','skyblue');
+//    单个的不能写选择器
+//    $('#cc').prev().css('background','pink');
+//    $('#cc').next().css('background','pink');
+//    5.id为cc的li标签的所有兄弟li标签         除了我以外
+    $('#cc').siblings('li').css('background','pink');
+
+</script>
+</body>
+</html>

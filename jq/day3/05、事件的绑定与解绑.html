@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left:50px;
+            top:30px;
+            background: pink;
+        }
+        .inner{
+            position: absolute;
+            top:50px;
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner">
+            内部div
+        </div>
+    </div>
+<button id="btn1">取消绑定所有事件</button>
+<button id="btn2">取消绑定某个事件</button>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+    //   eventName:编码方便 但只能加一个监听，且有的监听不支持
+//      on:编码不方便   但是可以添加多个监听(多个事件相应同一个回调)，且通用
+    //  1.给wrap绑定点击监听 （两种方式）
+//    $('.wrap').click(function () {
+//        console.log('点了我一下1')
+//    });
+//    $('.wrap').click(function () {
+//        console.log('点了我一下2')
+//    });
+//    $('.wrap').on('click mouseleave',function () {
+//        console.log('点了我一下1')
+//    })
+//    给inner绑定移入移出事件  三种方式
+//    $('.inner').mouseover(function () {
+//      console.log('mouseover');
+//    }).mouseout(function () {
+//      console.log('mouseout');
+//    })
+//    $('.inner').mouseenter(function () {
+//        console.log('mouseenter')
+//    }).mouseleave(function () {
+//        console.log('mouseleave')
+//    })
+//    hover  传递两个参数 都为函数  第一个参数为移入的回调函数  第二个参数为移出的回调函数
+//    如果只传递了一个参数  那么移入和移出都是使用这一个函数
+//    hover底层使用mouseenter和mouseleave实现的
+    $('.inner').hover(function () {
+        console.log('移入')
+    },function () {
+        console.log('移出')
+    })
+//    事件的解绑
+//    off()  解除事件  默认清除所有的事件监听
+//    off方法允许传递参数   参数为事件名称的字符串
+    // 可用于单独清除某个事件  如果想删除多个 使用空格分开即可
+    $('#btn1').click(function () {
+      $('.inner').off();
+    });
+    $('#btn2').click(function () {
+      $('.inner').off('mouseleave mouseenter');
+    })
+</script>
+</body>
+</html>

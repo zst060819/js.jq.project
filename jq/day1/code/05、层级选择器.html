@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>AAAAA</li>
+    <li class="box">BBBBB</li>
+    <li title="hello"><span>CCCCC</span></li>
+    <li title="hello"><span>DDDDD</span></li>
+    <span>EEEEE</span>
+</ul>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+  // 选中ul下所有的span
+//  $('ul span').css('background','pink');
+//   选中ul下所有的子元素span
+//    $('ul>span').css('background','pink');
+//  选中class为box的下一个li
+//    $('.box + li').css('background','pink');
+//  选中class为box后边所有的兄弟元素
+    $('.box ~ *').css('background','pink');
+</script>
+</body>
+</html>

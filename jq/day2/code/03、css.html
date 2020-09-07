@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p style="color: blue">今天天气好晴朗</p>
+    <p style="color: yellowgreen">处处好风光</p>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript">
+//    得到第一个p标签的文本颜色
+    console.log($('p:first').css('color'));
+//    设置所有p标签的文本颜色为pink
+    $('p').css('color','pink');
+//    设置第二个p标签的文本颜色为red  背景为blue  宽度为300px  高度为30px
+//    $('p:last').css('color','red');
+//    $('p:last').css('background','blue');
+//    $('p:last').css('width','300px');
+//    $('p:last').css('height','30px');
+    $('p:last').css({
+        'color':'#fff',
+        'background':'pink',
+        'width':'500px',
+        'height':'40px'
+    })
+</script>
+</body>
+</html>
